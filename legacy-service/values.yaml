@@ -1,8 +1,9 @@
 replicaCount: 2
 
 image:
-  repository: k8s-gitops-platform-legacy-service
+  repository: 779846808506.dkr.ecr.ap-south-1.amazonaws.com/legacy-service
   tag: latest
+  pullPolicy: IfNotPresent
 
 service:
   port: 3000

@@ -7,7 +7,7 @@ spec:
   groups:
   - name: pod-alerts
     rules:
-    - alert: HighPodRestarts
+    - alert: kubectl get prometheusrule -n monitoring
       expr: increase(kube_pod_container_status_restarts_total[5m]) > 3
       for: 1m
       labels:
