@@ -1,0 +1,20 @@
+replicaCount: 2
+
+image:
+  repository: 779846808506.dkr.ecr.ap-south-1.amazonaws.com/frontend
+  tag: latest
+
+containerPort: 80
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+service:
+  type: ClusterIP
+  port: 80

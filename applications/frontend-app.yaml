@@ -6,29 +6,25 @@ metadata:
   namespace: argocd
 
 spec:
-
   project: default
 
   source:
-
     repoURL: https://github.com/Pragati2708/k8s-gitops-config.git
-
-    targetRevision: HEAD
-
+    targetRevision: main
     path: frontend
 
+    helm:
+      valueFiles:
+        - values.yaml
 
   destination:
-
     server: https://kubernetes.default.svc
-
     namespace: uat
 
-
   syncPolicy:
-
     automated:
-
       prune: true
-
       selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
