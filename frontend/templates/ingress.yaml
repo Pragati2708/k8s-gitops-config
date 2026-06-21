@@ -5,25 +5,50 @@ metadata:
   name: frontend-ingress
 
   annotations:
-    kubernetes.io/ingress.class: alb
-
     alb.ingress.kubernetes.io/scheme: internet-facing
-
     alb.ingress.kubernetes.io/target-type: ip
 
-    alb.ingress.kubernetes.io/healthcheck-path: /
-
 spec:
-  ingressClassName: alb
-  
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
 
-            backend:
-              service:
-                name: frontend-service
-                port:
-                  number: 80
+  ingressClassName: alb
+
+  rules:
+
+  - http:
+
+      paths:
+
+      - path: /api/transactions
+        pathType: Prefix
+        backend:
+          service:
+            name: transaction-service
+            port:
+              number: 3001
+
+
+      - path: /api/legacy
+        pathType: Prefix
+        backend:
+          service:
+            name: legacy-service
+            port:
+              number: 3000
+
+
+      - path: /api/notifications
+        pathType: Prefix
+        backend:
+          service:
+            name: notification-service
+            port:
+              number: 3002
+
+
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend-service
+            port:
+              number: 80
