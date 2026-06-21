@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: 779846808506.dkr.ecr.ap-south-1.amazonaws.com/notification-service
-  tag: latest
+  tag: "2ce48e201e98fc7d28a252c186722cb554403683"
   pullPolicy: IfNotPresent
 
 service:
