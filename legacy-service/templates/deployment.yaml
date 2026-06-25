@@ -1,32 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: legacy
+
 spec:
   replicas: {{ .Values.replicaCount }}
+
   selector:
     matchLabels:
       app: legacy
+
   template:
     metadata:
       labels:
         app: legacy
+
     spec:
       containers:
-      - name: legacy
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        ports:
-        - containerPort: {{ .Values.service.port }}
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: {{ .Values.service.port }}
-          initialDelaySeconds: 5
-          periodSeconds: 10
-*        livenessProbe:
-*          httpGet:
-*            path: /health
-*            port: {{ .Values.service.port }}
-*          initialDelaySeconds: 15
-*          periodSeconds: 20
+        - name: legacy
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+          ports:
+            - containerPort: {{ .Values.service.port }}
+
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 15
+            periodSeconds: 20
