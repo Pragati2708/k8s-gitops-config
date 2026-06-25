@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: 779846808506.dkr.ecr.ap-south-1.amazonaws.com/transaction-service
-  tag: "caaa7b30ad36d194396bfa47e1afeb5ef0f0ce5d"
+  tag: "02666c504e1cfdca2c8c7ac26fbdb4f833d1fe62"
   pullPolicy: IfNotPresent
 
 service:
