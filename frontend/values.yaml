@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: 779846808506.dkr.ecr.ap-south-1.amazonaws.com/frontend
-  tag: "b8b08bd060581e9135430a0fc14544a7c66e4cca"
+  tag: "v1"
 
 containerPort: 80
 
