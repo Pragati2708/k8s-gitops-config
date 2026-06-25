@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: 779846808506.dkr.ecr.ap-south-1.amazonaws.com/legacy-service
-  tag: "02666c504e1cfdca2c8c7ac26fbdb4f833d1fe62"
+  tag: "b9e34a5c6188851bbed66010164bb6aa4378cf59"
   pullPolicy: IfNotPresent
 
 service:
